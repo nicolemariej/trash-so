@@ -9,13 +9,13 @@ export const App: FC = () => {
   return (
     <Wallet>
       <Header />
-      <Content />
+      {/* <Content /> */}
       
     </Wallet>
 
   );
 };
 
-const Content: FC = () => {
-  return <div><WalletMultiButton /></div>;
-};
+// const Content: FC = () => {
+//   return <div><WalletMultiButton /></div>;
+// };
