@@ -15,5 +15,5 @@ export const App: FC = () => {
 };
 
 const Content: FC = () => {
-  return <div className="flex mx-auto"><WalletMultiButton /></div>;
+  return <div><WalletMultiButton /></div>;
 };
