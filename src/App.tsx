@@ -12,11 +12,12 @@ export const App: FC = () => {
       <Header />
       <div className='flex'>
       <Home />
-      <img src={home} alt='App display' className='h-full max-w-[50%]' />
+      <img src={home} alt='App display' className='h-full max-w-[50%] mt-10' />
       </div>
-      {/* <Content /> */}
+
       
     </Wallet>
+
 
   );
 };
