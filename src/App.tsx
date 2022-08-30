@@ -11,15 +11,9 @@ export const App: FC = () => {
   return (
     <Wallet>
       <Header />
-      <div className='flex'>
       <Home />
-      <img src={home} alt='App display' className='h-full max-w-[50%] mt-10' />
-      </div>
-<Description />
-      
+<Description /> 
     </Wallet>
-
-
   );
 };
 
