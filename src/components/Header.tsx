@@ -3,7 +3,6 @@ import React, { useMemo } from 'react';
 import logo from '../assets/logo.png'
 import { FaTwitter} from 'react-icons/fa';
 import { FaDiscord} from 'react-icons/fa';
-import Wallet from '../contexts/Wallet';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
 
@@ -15,7 +14,7 @@ export const Header: FC = () => {
   <span className='flex'>
 <div className='text-blue-500 mr-5 text-5xl'><FaTwitter /></div>
 <div className='text-blue-500 mr-20 text-5xl'><FaDiscord /></div>
-<span className='bg-purple-600 text-white text-5xl px-9 py-2 rounded-full'><WalletMultiButton />
+<span className='bg-purple-600 text-white px-9 py-2 rounded-full mr-7'><WalletMultiButton />
 </span>
   </span>
   </nav>
