@@ -5,6 +5,7 @@ import Wallet from './contexts/Wallet';
 import {Header} from './components/Header'
 import { Home } from './components/Home';
 import home from './assets/home-image.png'
+import { Description } from './components/Description';
 
 export const App: FC = () => {
   return (
@@ -14,7 +15,7 @@ export const App: FC = () => {
       <Home />
       <img src={home} alt='App display' className='h-full max-w-[50%] mt-10' />
       </div>
-
+<Description />
       
     </Wallet>
 
