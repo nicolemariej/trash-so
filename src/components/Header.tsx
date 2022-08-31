@@ -25,5 +25,5 @@ export const Header: FC = () => {
 };
 
 const Content: FC = () => {
-  return <div className='drop-shadow-lg bg-purple-600 text-white text-5xl px-2 py-2 rounded-full mr-7 max-w-sm'><WalletMultiButton /></div>;
+  return <div><WalletMultiButton className='font-medium drop-shadow-lg bg-purple-600 hover:bg-purple-600 text-white text-2xl px-7 py-2 rounded-full mr-7 max-w-sm'/></div>;
 };

@@ -6,13 +6,17 @@ import {Header} from './components/Header'
 import { Home } from './components/Home';
 import home from './assets/home-image.png'
 import { Description } from './components/Description';
+import { Routes, Route } from 'react-router-dom'
+import { Cleaning } from './components/Cleaning';
 
 export const App: FC = () => {
   return (
     <Wallet>
       <Header />
-      <Home />
-<Description /> 
+      <Routes>
+      <Route path='/' element={<Home/>}  />
+        <Route path='/cleaning' element={<Cleaning/> }  />
+      </Routes>
     </Wallet>
   );
 };
