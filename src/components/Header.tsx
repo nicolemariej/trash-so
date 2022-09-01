@@ -9,7 +9,9 @@ export const Header: FC = () => {
   return (
     <header>
       <nav className="flex justify-between mt-4">
-        <img className="h-10 mt-2 ml-2" src={logo} alt="Trash Logo" />
+        <a href="./">
+          <img className="h-10 mt-2 ml-2" src={logo} alt="Trash Logo" />
+        </a>
         <span className="flex">
           <div className="text-blue-500 mr-5 text-5xl">
             <FaTwitter />

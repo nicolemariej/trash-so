@@ -3,7 +3,6 @@ import React, { useMemo } from 'react';
 import logo from '../assets/logo.png';
 import fish from '../assets/fish.png';
 import home from '../assets/home-image.png';
-import { Cleaning } from './Cleaning';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { Routes, Route } from 'react-router-dom';
 import { Description } from './Description';
