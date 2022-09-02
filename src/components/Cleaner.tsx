@@ -13,9 +13,7 @@ export const Cleaner: FC = () => {
           Unknown Tokens
         </a>
       </div>
-      <div className="font-bold flex justify-center my-7">
-        Please select which NFT’s you would like to burn, you can unselect them before finalising the burn.
-      </div>
+
       <div>
         <Tokens />
       </div>
