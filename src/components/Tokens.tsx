@@ -6,8 +6,10 @@ import fish from '../assets/fish.png';
 import dummy from './data';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { useMoralis, useMoralisSolanaApi, useMoralisSolanaCall } from 'react-moralis';
 
 export const Tokens: FC = () => {
+  const api = 'HLsfmH5MxvBeZoRo9FaPgTROl4aBIRXORCD36725DQcscog8gd42sIg44Lod5m8B';
   const { connected } = useWallet();
   if (connected) {
     const cards = dummy.map((item) => {
@@ -30,7 +32,7 @@ export const Tokens: FC = () => {
           Please connect your wallet to continue...
         </div>
         <div className="flex justify-center ">
-          <WalletMultiButton className="mt-24 font-thin drop-shadow-lg bg-purple-600 hover:bg-purple-600 text-white text-4xl px-12 py-4 rounded-full " />
+          <WalletMultiButton className="mt-24 font-thin drop-shadow-lg bg-purple-600 hover:bg-purple-600 text-white text-4xl px-12 rounded-full " />
         </div>
       </div>
     );
