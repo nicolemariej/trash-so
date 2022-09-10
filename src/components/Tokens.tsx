@@ -1,24 +1,29 @@
 import React from 'react';
-import type { FC, ReactNode } from 'react';
+import type { FC, ReactNode, useMemo } from 'react';
 import nft from '../assets/nft.png';
 import { TokenCard } from './TokenCard';
 import fish from '../assets/fish.png';
 import dummy from './data';
 import { useWallet } from '@solana/wallet-adapter-react';
+
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useMoralis, useMoralisSolanaApi, useMoralisSolanaCall } from 'react-moralis';
 
 export const Tokens: FC = () => {
   const api = 'HLsfmH5MxvBeZoRo9FaPgTROl4aBIRXORCD36725DQcscog8gd42sIg44Lod5m8B';
-  const { connected } = useWallet();
-  if (connected) {
+  const { publicKey } = useWallet();
+  const serverUrl = 'https://a6xyqqo4hpy0.usemoralis.com:2053/server';
+  const appID = 'ZdHzvhari1ff954lOq6lpTruUGnnEodJXmL1cebI';
+
+  if (publicKey) {
     const cards = dummy.map((item) => {
       return <TokenCard img={item.img} token={item.token} />;
     });
     return (
       <div>
         <div className="font-bold flex justify-center my-7">
-          Please select which NFT’s you would like to burn, you can unselect them before finalising the burn.
+          {console.log(publicKey.toString())}Please select which NFT’s you would like to burn, you can unselect them
+          before finalising the burn.{' '}
         </div>
         <div className="flex m-16 justify-center grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 ">
           {cards}
