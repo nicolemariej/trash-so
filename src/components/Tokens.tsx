@@ -7,6 +7,7 @@ import dummy from './data';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useMoralis, useMoralisSolanaApi, useMoralisSolanaCall, useMoralisWeb3Api } from 'react-moralis';
+import Moralis from 'moralis-v1/types';
 
 export const Tokens: FC = () => {
   const api = 'HLsfmH5MxvBeZoRo9FaPgTROl4aBIRXORCD36725DQcscog8gd42sIg44Lod5m8B';
@@ -19,7 +20,6 @@ export const Tokens: FC = () => {
     address: 'HA17Nu9w2wNoCKVH9PizMbJKvBDmZrPwVkpogWc5oRBz',
   };
   const { nft } = useMoralisSolanaApi();
-
   const { fetch, data, isLoading } = useMoralisSolanaCall(nft.getNFTMetadata, options);
 
   if (publicKey) {
@@ -29,8 +29,8 @@ export const Tokens: FC = () => {
     return (
       <div>
         <div className="font-bold flex justify-center my-7">
-          {console.log(publicKey.toString())}Please select which NFT’efrwes you would like to burn, you can unselect
-          them before finalising the burn. {console.log(nft.toString())}
+          {console.log(publicKey.toString())}Please select which NFT’s you would like to burn, you can unselect them
+          before finalising the burn.
         </div>
         <div className="flex m-16 justify-center grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 ">
           {cards}
