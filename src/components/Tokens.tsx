@@ -1,6 +1,5 @@
 import React from 'react';
 import type { FC, ReactNode, useMemo } from 'react';
-import nft from '../assets/nft.png';
 import { TokenCard } from './TokenCard';
 import fish from '../assets/fish.png';
 import dummy from './data';
@@ -10,21 +9,20 @@ import { useMoralis, useMoralisSolanaApi, useMoralisSolanaCall, useMoralisWeb3Ap
 import Moralis from 'moralis-v1/types';
 
 export const Tokens: FC = () => {
-  const api = 'HLsfmH5MxvBeZoRo9FaPgTROl4aBIRXORCD36725DQcscog8gd42sIg44Lod5m8B';
   const { publicKey } = useWallet();
 
   const { account } = useMoralisSolanaApi();
   // get devnet SPL NFT metadata for a given address
   const options = {
     network: 'mainnet',
-    address: 'HA17Nu9w2wNoCKVH9PizMbJKvBDmZrPwVkpogWc5oRBz',
+    address: '21E6C92xr6nkbyy4MV894ZqmEsrixmLSoampz76pcsCC',
   };
   const { nft } = useMoralisSolanaApi();
   const { fetch, data, isLoading } = useMoralisSolanaCall(nft.getNFTMetadata, options);
 
   if (publicKey) {
-    const cards = dummy.map((item) => {
-      return <TokenCard img={item.img} token={item.token} />;
+    const cards = dummy.map((i) => {
+      return <TokenCard key={i} nftAddress={options.address} />;
     });
     return (
       <div>

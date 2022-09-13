@@ -1,7 +1,8 @@
 import React from 'react';
-import type { FC, ReactNode } from 'react';
+import type { FC, ReactNode, useState, useEffect } from 'react';
 import { Header } from './Header';
 import { Tokens } from './Tokens';
+import apiPost from './apiPost';
 
 export const Cleaner: FC = () => {
   return (
