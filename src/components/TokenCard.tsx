@@ -17,6 +17,7 @@ import React, { useEffect, useState, FC } from 'react';
 import { resolveIPFS } from './resolveIPFS';
 import apiPost from './apiPost';
 import axios from 'axios';
+import { useMoralisWeb3Api } from 'react-moralis';
 
 export const TokenCard: FC = (nftAddress) => {
   const [nftData, setNftData] = useState({ contractType: '', name: '', metadata: '' });
@@ -26,19 +27,32 @@ export const TokenCard: FC = (nftAddress) => {
       network: 'mainnet',
       address: '21E6C92xr6nkbyy4MV894ZqmEsrixmLSoampz76pcsCC',
     };
-    const response = await apiPost('./getNFTMetaData', options);
-    const result = await axios.get(`${response.metaplex.metadataUri}`, {
-      headers: {
-        'content-type': 'application/json',
-      },
-    });
+  const solApi = useMoralisSolanaApi();
 
-    setNftData({
-      contractType: response.standard,
-      name: response.name,
-      metadata: result.data,
-    });
+
+
+const getNFTMetadata = async () => {
+  const options = {
+    network: 'mainnet',
+    address: '21E6C92xr6nkbyy4MV894ZqmEsrixmLSoampz76pcsCC',
   };
+  const metaData = await solApi.nft.getNFTMetadata(options);
+  console.log('meta data.....', metaData);
+  // const response = await apiPost('./getNFTMetaData', options);
+  const result = await axios.get(`${metaData.metaplex.metadataUri}`, {
+    headers: {
+      'content-type': 'application/json',
+    },
+  });
+  console.log('result data.....', result);
+
+  setNftData({
+    contractType: metaData.standard,
+    name: metaData.name,
+    metadata: result.data,
+  });
+};
+
 
   useEffect(() => {
     if (nftAddress) {
