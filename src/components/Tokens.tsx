@@ -6,19 +6,32 @@ import dummy from './data';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useMoralis, useMoralisSolanaApi, useMoralisSolanaCall, useMoralisWeb3Api } from 'react-moralis';
-import Moralis from 'moralis-v1/types';
+import { Moralis } from '@moralis/sdk';
 
 export const Tokens: FC = () => {
   const { publicKey } = useWallet();
 
   const { account } = useMoralisSolanaApi();
   // get devnet SPL NFT metadata for a given address
-  const options = {
-    network: 'mainnet',
-    address: '21E6C92xr6nkbyy4MV894ZqmEsrixmLSoampz76pcsCC',
-  };
+  // const options = {
+  //   network: 'mainnet',
+  //   address: '21E6C92xr6nkbyy4MV894ZqmEsrixmLSoampz76pcsCC',
+  // };
   const { nft } = useMoralisSolanaApi();
-  const { fetch, data, isLoading } = useMoralisSolanaCall(nft.getNFTMetadata, options);
+  // const { fetch, data, isLoading } = useMoralisSolanaCall(nft.getNFTMetadata, options);
+
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      'X-API-Key': 'HLsfmH5MxvBeZoRo9FaPgTROl4aBIRXORCD36725DQcscog8gd42sIg44Lod5m8B',
+    },
+  };
+
+  fetch('https://solana-gateway.moralis.io/account/mainnet/HA17Nu9w2wNoCKVH9PizMbJKvBDmZrPwVkpogWc5oRBz/nft', options)
+    .then((response) => response.json())
+    .then((response) => console.log(response.mainnet))
+    .catch((err) => console.error(err));
 
   if (publicKey) {
     //Todo To display all the images from 5 nfts, get the 5 token ids for 5 NFTs,
