@@ -30,7 +30,7 @@ export const Tokens: FC = () => {
 
   fetch('https://solana-gateway.moralis.io/account/mainnet/HA17Nu9w2wNoCKVH9PizMbJKvBDmZrPwVkpogWc5oRBz/nft', options)
     .then((response) => response.json())
-    .then((response) => console.log(response.mainnet))
+    .then((response) => console.log(response))
     .catch((err) => console.error(err));
 
   if (publicKey) {
