@@ -21,6 +21,8 @@ export const Tokens: FC = () => {
   const { fetch, data, isLoading } = useMoralisSolanaCall(nft.getNFTMetadata, options);
 
   if (publicKey) {
+    //Todo To display all the images from 5 nfts, get the 5 token ids for 5 NFTs,
+    // and store it dummy data and iterate.
     const cards = dummy.map((i) => {
       return <TokenCard key={i} nftAddress={options.address} />;
     });
